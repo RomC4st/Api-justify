@@ -4,13 +4,13 @@ in order to use the API_justify
 you have to:
 
 1-register using /api/register
-username:
-email:
-password
+#username:
+#email:
+#password
 
 2-login using  api/login
-email
-password
+#email
+#password
 
 #the api return you a unique token
 
