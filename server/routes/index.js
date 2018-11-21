@@ -148,7 +148,7 @@ module.exports = (app) => {
 								return res.status(404).json({ 'error': 'incorrect token' });
 							}
 					}).catch((err) => {
-						return res.status(500).json({ 'error': 'incorrect token' });
+						return res.status(500).json({ 'error': 'unable to verify user' });
 					});
 				}
 		})
