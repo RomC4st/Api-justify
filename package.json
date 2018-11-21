@@ -15,6 +15,7 @@
     "express": "^4.16.4",
     "express-rate-limit": "^3.3.2",
     "jsonwebtoken": "^8.4.0",
+    "pg": "^7.6.1",
     "sequelize": "^4.41.2",
     "sqlite": "^3.0.0"
   }
