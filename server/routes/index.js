@@ -14,7 +14,7 @@ const PRIVATE_KEY ='privatekey'
 module.exports = (app) => {
 
 	app.get('/',(req,res) => {
-		res.status(200).send(`<h3>Welcome !</h3>`)
+		res.status(200).send(`<h3> Welcome !!! </h3>`)
 	})
 	/**
 	 * api/register :create a count
