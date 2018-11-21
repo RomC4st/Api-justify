@@ -128,7 +128,14 @@ module.exports = (app) => {
 								const nowDateMili = nowDate.getTime();
 								const lastRate =  userFound.ratelimit +text.split(' ').length*80;
 								const nbHourFromLastUpdate = (nowDateMili- userFound.updatedAt.getTime())/3600000
-								if(nbHourFromLastUpdate <25 && lastRate>80000){
+								if(nbHourFromLastUpdate >=25 && lastRate>80000){
+									userFound.ratelimit = text.split(' ').length*80
+									userFound.save()
+									res.status(201).json({
+										message: textJustification(text.split(' '),80),
+									});
+								}
+								else if(nbHourFromLastUpdate <25 && lastRate>80000){
 									return res.status(402).json({ 'error': 'Payment required' });
 								}else{
 									userFound.ratelimit = lastRate
