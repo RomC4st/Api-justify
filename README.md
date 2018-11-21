@@ -3,14 +3,14 @@
 in order to use the API_justify
 you have to:
 
-1-register using /api/register:
-username:
-email:
-password
+1-register using /api/register :
+ 1-username:
+ 2-email:
+ 3-password
 
 2-login using  api/login:
-email
-password
+ 1-email
+ 2-password
 
 the api return you a unique token
 
