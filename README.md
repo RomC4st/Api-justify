@@ -16,4 +16,4 @@ the api return you a unique token
 rate limit is fixed per day, more 80 000 words a payment is required.
 
 
-since I used an ORM : sequelize  the api can be work either online or locally.
+since I used an ORM : sequelize  the api can be work either online (using the postgreSQL DB) or locally (using SQLite).
