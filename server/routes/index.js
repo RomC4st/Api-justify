@@ -13,8 +13,6 @@ const PRIVATE_KEY ='privatekey'
 
 module.exports = (app) => {
 
-
-
 	app.get('/',(req,res) => {
 		res.status(200).send(`<h3>Welcome !</h3>`)
 	})
@@ -108,10 +106,14 @@ module.exports = (app) => {
 	 */
 	app.post('/api/justify', checkToken, (req, res) => {
 		const {body} = req
-		//verify the JWT token generated for the user
+		/**
+		 *verify the JWT token generated for the user
+		 */
 		jwt.verify(req.token, PRIVATE_KEY, (err, authorizedData) => {
 				if(err){
-					//If error send Forbidden (403)
+					/**
+					 * If error send Forbidden (403)
+					 */
 					console.log('ERROR: Could not connect to the protected route');
 					res.sendStatus(403);
 				} else {
@@ -126,7 +128,6 @@ module.exports = (app) => {
 								const nowDateMili = nowDate.getTime();
 								const lastRate =  userFound.ratelimit +text.split(' ').length*80;
 								const nbHourFromLastUpdate = (nowDateMili- userFound.updatedAt.getTime())/3600000
-
 								if(nbHourFromLastUpdate <25 && lastRate>80000){
 									return res.status(402).json({ 'error': 'Payment required' });
 								}else{
@@ -146,7 +147,10 @@ module.exports = (app) => {
 		})
 	});
 }
-//Check to make sure header is not undefined, if so, return Forbidden (403)
+
+/**
+ *Check to make sure header is not undefined, if so, return Forbidden (403)
+ */
 const checkToken = (req, res, next) => {
 	const header = req.headers['authorization'];
 	if(typeof header !== 'undefined') {
@@ -160,14 +164,16 @@ const checkToken = (req, res, next) => {
 			res.sendStatus(403)
 	}
 }
-const  textJustification = (words, l) => {
-		//1. Split into lines, add between words to count
-		//2. Add spaces between words
-		// - Split extra spaces evenly between words
-		// - When spaces divide unevenly, split the extra and distribute again.
-		//  - For lines with one word only, words are left justified, spaces on the right.
-		// - For the last line of text, words are left justified, spaces on the right.
 
+const  textJustification = (words, l) => {
+		/**
+		 * 1. Split into lines, add between words to count
+		 * 2. Add spaces between words
+		 *	- Split extra spaces evenly between words
+		 *	- When spaces divide unevenly, split the extra and distribute again.
+		 *  - For lines with one word only, words are left justified, spaces on the right.
+		 *  - For the last line of text, words are left justified, spaces on the right.
+		 */
 		var lines = [];
 		var i = 0;
 		lines[i] = [];
