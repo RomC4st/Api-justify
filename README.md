@@ -11,9 +11,9 @@ you have to:
 
 the api return you a unique token
 
-3-to justfy your use text use  api/justify:
+3-to justfy your text use  api/justify:
 
-rate limit is fixed per day, more 80 000 words a payment is required.
+rate limit is fixed per day, more than 80 000 words a payment is required.
 
 
 since I used an ORM : sequelize  the api can be work either online (using the postgreSQL DB) or locally (using SQLite).
