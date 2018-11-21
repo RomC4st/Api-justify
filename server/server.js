@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const models = require('../models')
-const port = 3000;
+const port = 3001;
 
 app.use(express.urlencoded({ extended: true }));
 
