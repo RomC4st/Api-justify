@@ -126,10 +126,12 @@ module.exports = (app) => {
 
 								const nowDate = new Date();
 								const nowDateMili = nowDate.getTime();
-								const lastRate =  userFound.ratelimit +text.split(' ').length*80;
+								const lastRate =  userFound.ratelimit +text.split(' ').length;
 								const nbHourFromLastUpdate = (nowDateMili- userFound.updatedAt.getTime())/3600000
+								console.log(lastRate);
+
 								if(nbHourFromLastUpdate >=25 && lastRate>80000){
-									userFound.ratelimit = text.split(' ').length*80
+									userFound.ratelimit = text.split(' ').length
 									userFound.save()
 									res.status(201).json({
 										message: textJustification(text.split(' '),80),
